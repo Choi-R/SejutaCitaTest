@@ -1,0 +1,185 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Dokumentasi untuk Percobaan DynamoDB",
+      "version": "1.0.0",
+      "title": "Dokumentasi",
+      "contact": {
+        "email": "choirul.rahmaditya@mail.ugm.ac.id"
+      }
+    },
+    "host": "",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "User Collection",
+        "description": ""
+      }
+    ],
+    "paths": {
+      "/api": {
+        "post": {
+          "tags": [
+            "User Collection"
+          ],
+          "summary": "Menyimpan data baru",
+          "description": "",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Choi"
+                  },
+                  "id": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Penyimpanan data berhasil dilakukan !"
+            },
+            "406": {
+              "description": "Error"
+            }
+          }
+        },
+        "get": {
+            "tags": [
+              "User Collection"
+            ],
+            "summary": "Mencari data.",
+            "description": "",
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+            ],
+            "responses": {
+              "200": {
+                "description": "Sukses"
+              },
+              "404": {
+                "description": "Error"
+              }
+            }
+          }
+      },
+      "/api/{id}": {
+        "put": {
+          "tags": [
+            "User Collection"
+          ],
+          "summary": "Menyunting data",
+          "description": "",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "description": "The id",
+                "required": true,
+                "type": "number"
+              },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Choi3"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Penyuntingan data berhasil dilakukan !"
+            },
+            "406": {
+              "description": "Error"
+            }
+          }
+        },
+        "delete": {
+            "tags": [
+              "User Collection"
+            ],
+            "summary": "Menghapus data",
+            "description": "",
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "The id",
+                    "required": true,
+                    "type": "number"
+                  }
+            ],
+            "responses": {
+              "200": {
+                "description": "Sukses"
+              },
+              "404": {
+                "description": "Error"
+              }
+            }
+          }
+      }
+    },
+    "securityDefinitions": {
+      "Authorization": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "definitions": {
+      "USERS_TABLE": {
+        "type": "object",
+        "properties": {
+            "nama": {
+              "type": "string",
+              "example": "Choi"
+            },
+            "id": {
+                "type": "number",
+                "example": 1
+              }
+          }
+      }
+    },
+    "externalDocs": {
+      "description": "Backend Repository",
+      "url": ""
+    }
+  }

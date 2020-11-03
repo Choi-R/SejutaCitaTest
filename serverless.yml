@@ -1,0 +1,7 @@
+org: choirul
+app: mencoba-serverless
+component: express
+name: express-starter
+
+inputs:
+  src: ./
